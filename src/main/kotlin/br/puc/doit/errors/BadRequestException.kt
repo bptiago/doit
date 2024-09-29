@@ -1,4 +1,4 @@
-package br.puc.doit.users.errors
+package br.puc.doit.errors
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ResponseStatus

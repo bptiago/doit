@@ -1,5 +1,7 @@
 package br.puc.doit.users
 
+import br.puc.doit.users.requests.CreateUserRequest
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,8 +17,8 @@ class UserController (
     val service: UserService
 ) {
     @PostMapping
-    fun insert(@RequestBody user: User) =
-        service.insert(user)
+    fun insert(@RequestBody @Valid user: CreateUserRequest) =
+        service.insert(user.toUser())
             .let { ResponseEntity.ok(it) }
             .let { ResponseEntity.status(HttpStatus.CREATED).body(it) }
 

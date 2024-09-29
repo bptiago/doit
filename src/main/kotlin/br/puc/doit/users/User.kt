@@ -18,5 +18,6 @@ class User (
 
     @OneToMany(cascade = arrayOf(CascadeType.ALL))
     @JoinColumn(name = "fk_user_email", referencedColumnName = "email")
-    var tasks: List<Task>
-)
+    var tasks: MutableList<Task>
+) {
+}
